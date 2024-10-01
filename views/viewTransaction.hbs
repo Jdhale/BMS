@@ -1,0 +1,40 @@
+\<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>View Transactions</title>
+</head>
+<body>
+    <h1>All Transactions</h1>
+
+    {{#if transactions.length}}
+        <table>
+            <thead>
+                <tr>
+                    <th>Transaction ID</th>
+                    <th>User ID</th>
+                    <th>Amount</th>
+                    <th>Transaction Type</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {{#each transactions}}
+                <tr>
+                    <td>{{this.transaction_id}}</td> <!-- Adjust based on your actual column names -->
+                    <td>{{this.user_id}}</td>
+                    <td>{{this.amount}}</td>
+                    <td>{{this.transaction_type}}</td>
+                    <td>{{this.date}}</td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table>
+    {{else}}
+        <p>No transactions found.</p>
+    {{/if}}
+
+    <a href="/addTransaction">Add New Transaction</a>
+</body>
+</html>
